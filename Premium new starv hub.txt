@@ -1,0 +1,102 @@
+local OrionLib = loadstring(game:HttpGet(('https://raw.githubusercontent.com/shlexware/Orion/main/source')))()
+
+-- Values & Functions
+_G.Key = "776FR2PCW1KJCMQ"
+_G.KeyInput = "string"
+
+function CorrectKey()
+loadstring(game:HttpGet("https://raw.githubusercontent.com/Coolgamingiscool/Hey-7g/main/Cool/Hub/V4."))()
+wait(0.1)
+OrionLib:MakeNotification({
+	Name = "Correct Key!",
+	Content = "You have entered the correct key!",
+	Image = "",
+	Time = 4
+})
+end
+
+function IncorrectKey()
+OrionLib:MakeNotification({
+	Name = "Incorrect Key!",
+	Content = "You have entered the Incorrect key!",
+	Image = "",
+	Time = 4
+})
+end
+
+-- Creating Window
+local Window = OrionLib:MakeWindow({Name = "Key System for Cool hub v4 | Premium", HidePremium = false, SaveConfig = true, ConfigFolder = "OrionTest", IntroEnabled = true})
+
+-- Tabs
+local tab1 = Window:MakeTab({
+	Name = "Key System",
+	Icon = "",
+	PremiumOnly = false
+})
+
+-- Define tab1
+local section1 = tab1:AddSection({
+	Name = "Key"
+})
+
+tab1:AddTextbox({
+	Name = "Enter Key",
+	Default = "",
+	TextDisappear = false,
+	Callback = function(Value)
+		_G.KeyInput = Value
+	end	  
+})
+
+tab1:AddButton({
+	Name = "Check Key!",
+	Callback = function()
+            if _G.KeyInput == _G.Key then                
+                wait(0.5)
+                CorrectKey()
+                else
+                   IncorrectKey()
+            end
+  	end    
+})
+
+tab1:AddButton({
+	Name = "Copy key",
+	Callback = function()
+      		setclipboard("776FR2PCW1KJCMQ")
+  	end    
+})
+
+local Stab = Window:MakeTab({
+	Name = "Settings",
+	Icon = "",
+	PremiumOnly = false
+})
+
+Stab:AddButton({
+	Name = "Created By Cool Gaming",
+	Callback = function()
+      		OrionLib:MakeNotification({
+	Name = "You are now officially cool "..Player.Name.." ",
+	Content = "Welcome to the Cool squad "..Player.Name.." ",
+	Image = "",
+	Time = 5
+})
+  	end    
+})
+
+Stab:AddButton({
+	Name = "Destroy UI",
+	Callback = function()
+      		OrionLib:Destroy()
+  	end    
+})
+
+Stab:AddButton({
+	Name = "Exit (go back to starv hub)",
+	Callback = function()
+      		OrionLib:Destroy()
+      wait(0.2)
+      loadstring(game:HttpGet("https://raw.githubusercontent.com/Coolgamingiscool/Premium/main/Premium%20starv%20hub"))() 
+  	end    
+})
